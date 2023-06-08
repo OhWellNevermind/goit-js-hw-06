@@ -12,3 +12,15 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const list = document.querySelector(".gallery");
+let fragList = document.createDocumentFragment();
+
+images.forEach(image => {
+  const li = document.createElement("li")
+  li.insertAdjacentHTML("beforeend", `<img src="${image.url}" alt="${image.alt}">`)
+  li.className = "image"
+  fragList.appendChild(li);
+})
+
+list.append(fragList);
