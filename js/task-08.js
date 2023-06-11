@@ -11,6 +11,11 @@ form.addEventListener("submit", (event) => {
         return alert("Please fill in all the fields!");
     }
 
-    console.log(`Email: ${email.value}, Password: ${password.value}`);
+    let formData = {
+        email: email.value,
+        password: password.value
+    }
+
+    console.log(formData);
     event.currentTarget.reset();
 })
