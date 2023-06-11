@@ -14,13 +14,14 @@ const images = [
 ];
 
 const list = document.querySelector(".gallery");
-let fragList = document.createDocumentFragment();
 
-images.forEach(image => {
+const liList = images.map(image => {
   const li = document.createElement("li")
-  li.insertAdjacentHTML("beforeend", `<img src="${image.url}" alt="${image.alt}">`)
+  li.innerHTML += `<img src="${image.url}" alt="${image.alt}">`
   li.className = "image"
-  fragList.appendChild(li);
+  return li.outerHTML;
 })
 
-list.append(fragList);
+console.log(liList);
+
+list.insertAdjacentHTML("beforeend",liList.join(""));
